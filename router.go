@@ -38,7 +38,7 @@ func (a *Router) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	log.Println(req.URL)
 
 	for key, value := range a.routes {
-		log.Println(fmt.Sprintf("Setting header: %s : %s", key, value))
+		log.Println(fmt.Sprintf("Setting %s header: %s : %s", req.RequestURI, key, value))
 		req.Header.Set(key, value)
 	}
 
